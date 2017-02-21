@@ -299,6 +299,11 @@ class Especialista extends db_abstract_class
 
     }
 
+    public function getCitas (){
+        $ArrCitas = Cita::buscar("SELECT * FROM odontologos.cita WHEN idEspecialista = ".$this->idEspecialista);
+        return $ArrCitas;
+    }
+
     protected function eliminar($id)
     {
         if ($id > 0){

@@ -275,6 +275,11 @@ class Paciente extends db_abstract_class
 
     }
 
+    function getCitas (){
+        $arrCitas = Cita::buscar("SELECT * FROM odontologos.cita WHEN idPaciente = ".$this->idPaciente);
+        return $arrCitas;
+    }
+
     protected function eliminar($id)
     {
         if ($id > 0){

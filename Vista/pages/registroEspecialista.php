@@ -46,10 +46,10 @@
                                             <option>Seleccione</option>
                                             <option value="Ortodoncista">Ortodoncista</option>
                                             <option value="Endodoncista">Endodoncista</option>
-                                           <!-- <option value="Protesista">Protesista</option>
-                                            <option value="Cirugano Oral">Cirugano Oral</option>
-                                            <option value="Odontopediatria">Odontopediatria</option>
-                                            <option value="Otro">Otro</option>-->
+                                            <option value="Periodoncista">Periodoncista</option>
+                                            <option value="Protesista">Protesista</option>
+                                            <option value="Cirujano Oral">Cirujano Oral</option>
+                                            <option value="Odontopediatra">Odontopediatra</option>>
                                         </select>
                                     </div>
                                     <div class="form-group">
