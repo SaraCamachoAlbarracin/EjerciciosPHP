@@ -12,7 +12,7 @@ class Paciente extends db_abstract_class
 {
 
     private $idPaciente;
-    private $Nombres;
+    private $Nombre;
     private $Apellidos;
     private $Documento;
     private $TipoDocumento;
@@ -30,7 +30,7 @@ class Paciente extends db_abstract_class
             }
         }else {
             $this->idPaciente = "";
-            $this->Nombres = "";
+            $this->Nombre = "";
             $this->Apellidos = "";
             $this->Documento = "";
             $this->TipoDocumento = "";
@@ -66,17 +66,17 @@ class Paciente extends db_abstract_class
     /**
      * @return mixed
      */
-    public function getNombres()
+    public function getNombre()
     {
-        return $this->Nombres;
+        return $this->Nombre;
     }
 
     /**
      * @param mixed $Nombres
      */
-    public function setNombres($Nombres)
+    public function setNombre($Nombres)
     {
-        $this->Nombres = $Nombres;
+        $this->Nombre = $Nombres;
     }
 
     /**
@@ -191,13 +191,13 @@ class Paciente extends db_abstract_class
         $this->Estado = $Estado;
     }
 
-    protected static function buscarForId($id)
+    public static function buscarForId($id)
     {
         $pacien = new Paciente();
         if ($id > 0){
             $getrow = $pacien->getRow("SELECT * FROM odontologos.paciente WHERE idPaciente =?", array($id));
             $pacien->idPaciente = $getrow['idPaciente'];
-            $pacien->Nombres = $getrow['Nombres'];
+            $pacien->Nombre = $getrow['Nombre'];
             $pacien->Apellidos = $getrow['Apellidos'];
             $pacien->Documento = $getrow['Documento'];
             $pacien->TipoDocumento = $getrow['TipoDocumento'];
@@ -212,7 +212,7 @@ class Paciente extends db_abstract_class
         }
     }
 
-    protected static function buscar($query)
+    public static function buscar($query)
     {
         $arrPacientes = array();
         $tmp = new Paciente();
@@ -221,7 +221,7 @@ class Paciente extends db_abstract_class
         foreach ($getrows as $valor) {
             $pacien = new Paciente();
             $pacien->idPaciente = $valor['idPaciente'];
-            $pacien->Nombres = $valor['Nombres'];
+            $pacien->Nombre = $valor['Nombre'];
             $pacien->Apellidos = $valor['Apellidos'];
             $pacien->Documento = $valor['Documento'];
             $pacien->TipoDocumento = $valor['TipoDocumento'];
@@ -235,7 +235,7 @@ class Paciente extends db_abstract_class
         return $arrPacientes;
     }
 
-    protected static function getAll()
+    public static function getAll()
     {
         return Paciente::buscar("SELECT * FROM odontologos.paciente");
     }
@@ -243,7 +243,7 @@ class Paciente extends db_abstract_class
     public function insertar()
     {
         $this->insertRow("INSERT INTO odontologos.paciente VALUES ('NULL', ?, ?, ?, ?, ?, ?, ?, ?)", array(
-                $this->Nombres,
+                $this->Nombre,
                 $this->Apellidos,
                 $this->Documento,
                 $this->TipoDocumento,
@@ -256,13 +256,13 @@ class Paciente extends db_abstract_class
         $this->Disconnect();
     }
 
-    protected function editar()
+    public function editar()
     {
 
         $arrUser = (array) $this;
         $this->updateRow("UPDATE odontologos.paciente SET Nombre = ?, Apellidos = ?, Documento = ?, TipoDocumento = ?, Direccion = ?, Email = ?, Genero = ?, Estado = ? WHERE idPaciente = ?", array(
             $this->idPaciente,
-            $this->Nombres,
+            $this->Nombre,
             $this->Apellidos,
             $this->Documento,
             $this->TipoDocumento,
