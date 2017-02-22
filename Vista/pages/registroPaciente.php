@@ -41,7 +41,7 @@
                                     <form role="form" method="post" action="../../Controlador/pacienteController.php?action=crear">
                                         <div class="form-group">
                                             <label>Nombres</label>
-                                            <input required maxlength="60" id="Nombres" name="Nombres" minlength="2" class="form-control" placeholder="Ingrese Sus Nombres Completos">
+                                            <input required maxlength="60" id="Nombre" name="Nombre" minlength="2" class="form-control" placeholder="Ingrese Sus Nombres Completos">
                                         </div>
                                         <div class="form-group">
                                             <label>Apellidos</label>

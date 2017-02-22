@@ -1,60 +1,44 @@
 <?php
 
-require_once (__DIR__.'/../Modelo/Paciente.php');
+require_once (__DIR__.'/../Modelo/Cita.php');
 
 if(!empty($_GET['action'])){
-    pacienteController::main($_GET['action']);
+    citaController::main($_GET['action']);
 }else{
     echo "No se encontro ninguna accion...";
 }
 
-class pacienteController{
+class citaController{
 
     static function main($action){
         if ($action == "crear"){
-            pacienteController::crear();
-        }else if ($action == "selectPacientes"){
-            pacienteController::selectPacientes();
-        }
-        /*else if ($action == "editar"){
-            pacienteController::editar();
+            citaController::crear();
+        }/*else if ($action == "editar"){
+            citaController::editar();
         }else if ($action == "buscarID"){
-            pacienteController::buscarID(1);
+            citaController::buscarID(1);
         }*/
     }
 
     static public function crear (){
         try {
-            $arrayPaciente = array();
-            $arrayPaciente['Nombre'] = $_POST['Nombre'];
-            $arrayPaciente['Apellidos'] = $_POST['Apellidos'];
-            $arrayPaciente['Direccion'] = $_POST['Direccion'];
-            $arrayPaciente['TipoDocumento'] = $_POST['TipoDocumento'];
-            $arrayPaciente['Documento'] = $_POST['Documento'];
-            $arrayPaciente['Email'] = $_POST['Email'];
-            $arrayPaciente['Genero'] = $_POST['Genero'];
-            $arrayPaciente['Estado'] = "Activo";
-            $paciente = new Paciente ($arrayPaciente);
-            $paciente->insertar();
-            //header("Location: ../Vista/registroPaciente.php?respuesta=correcto");
+            $arrayCita = array();
+            $arrayCita['Fecha'] = $_POST['Fecha'];
+            $arrayCita['Codigo'] = $_POST['Codigo'];
+            $arrayCita['Estado'] = $_POST['Estado'];
+            $arrayCita['Valor'] = $_POST['Valor'];
+            $arrayCita['NConsultorio'] = $_POST['NConsultorio'];
+            $arrayCita['Observaciones'] = $_POST['Observaciones'];
+            $arrayCita['Motivo'] = $_POST['Motivo'];
+            $arrayCita['idPaciente'] = $_POST['idPaciente'];
+            $arrayCita['idEspecialista'] = $_POST['idEspecialista'];
+            $cita = new Cita($arrayCita);
+            $cita->insertar();
+            header("Location: ../Vista/registroCita.php?respuesta=correcto");
         } catch (Exception $e) {
-            var_dump($e);
-            //header("Location: ../Vista/registroPaciente.php?respuesta=error");
+            header("Location: ../Vista/registroCita.php?respuesta=error");
         }
     }
-
-    static public function selectPacientes ($isRequired=true, $id="idPaciente", $nombre="idPaciente", $class=""){
-        $arrPacientes = Paciente::getAll(); /*  */
-        $htmlSelect = "<select ".(($isRequired) ? "required" : "")." id= '".$id."' name='".$nombre."' class='".$class."'>";
-            $htmlSelect .= "<option >Seleccione</option>";
-            if(count($arrPacientes) > 0){
-                foreach ($arrPacientes as $paciente)
-                $htmlSelect .= "<option value='".$paciente->getIdPaciente()."'>".$paciente->getNombre()." ".$paciente->getApellidos()."</option>";
-            }
-        $htmlSelect .= "</select>";
-        return $htmlSelect;
-    }
-
     /*
     static public function editar (){
         try {
