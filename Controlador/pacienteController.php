@@ -33,7 +33,7 @@ class pacienteController{
             $arrayPaciente['Documento'] = $_POST['Documento'];
             $arrayPaciente['Email'] = $_POST['Email'];
             $arrayPaciente['Genero'] = $_POST['Genero'];
-            $arrayPaciente['Estado'] = "Activo";
+            $arrayPaciente['Estado'] = $_POST['Estado'];
             $paciente = new Paciente ($arrayPaciente);
             $paciente->insertar();
             //header("Location: ../Vista/registroPaciente.php?respuesta=correcto");

@@ -24,8 +24,8 @@ class EspecialistaController{
         try {
             $arrayEspecialista = array();
             $arrayEspecialista['Tipo'] = $_POST['Tipo'];
-            $arrayEspecialista['Nombres'] = $_POST['Nombres'];
-            $arrayEspecialista['Apellidos'] = $_POST['Apellidos'];
+            $arrayEspecialista['Nombre'] = $_POST['Nombre'];
+            $arrayEspecialista['Apellido'] = $_POST['Apellido'];
             $arrayEspecialista['Direccion'] = $_POST['Direccion'];
             $arrayEspecialista['TipoDocumento'] = $_POST['TipoDocumento'];
             $arrayEspecialista['Documento'] = $_POST['Documento'];
@@ -37,8 +37,20 @@ class EspecialistaController{
            //header("Location: ../Vista/registroEspecialista.php?respuesta=correcto");
         } catch (Exception $e) {
            //header("Location: ../Vista/registroEspecialista.php?respuesta=error");
-           var_dump("Location: ../Vista/registroEspecialista.php?respuesta=error");
+           var_dump($e);
         }
+    }
+
+    static public function selectEspecialista ($isRequired=true, $id="idEspecialista", $nombre="idEspecialista", $class=""){
+        $arrEspecialista = Especialista::getAll(); /*  */
+        $htmlSelect = "<select ".(($isRequired) ? "required" : "")." id= '".$id."' name='".$nombre."' class='".$class."'>";
+        $htmlSelect .= "<option >Seleccione</option>";
+        if(count($arrEspecialista) > 0){
+            foreach ($arrEspecialista as $Especialista)
+                $htmlSelect .= "<option value='".$Especialista->getIdEspecialista()."'>".$Especialista->getNombre()." ".$Especialista->getApellido()."</option>";
+        }
+        $htmlSelect .= "</select>";
+        return $htmlSelect;
     }
     /*
     static public function editar (){

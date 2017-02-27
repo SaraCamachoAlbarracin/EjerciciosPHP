@@ -1,4 +1,5 @@
 <?php require "../../Controlador/pacienteController.php";?>
+<?php require "../../Controlador/EspecialistaController.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,6 +73,11 @@
                                     <div class="form-group">
                                         <label>Paciente</label>
                                         <?php echo pacienteController::selectPacientes(true,"idPaciente","idPaciente","form-control"); ?>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Especialista</label>
+                                        <?php echo EspecialistaController::selectEspecialista(true,"idEspecialista","idEspecialista","form-control"); ?>
                                     </div>
 
                                     <div class="form-group">

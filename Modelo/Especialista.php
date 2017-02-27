@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: CAPACITACION-PC
- * Date: 16/2/2017
- * Time: 22:07
- */
+
 require_once('db_abstract_class.php');
 
 class Especialista extends db_abstract_class
@@ -13,8 +8,8 @@ class Especialista extends db_abstract_class
 
     private $idEspecialista;
     private $Tipo;
-    private $Nombres;
-    private $Apellidos;
+    private $Nombre;
+    private $Apellido;
     private $Documento;
     private $TipoDocumento;
     private $Direccion;
@@ -32,8 +27,8 @@ class Especialista extends db_abstract_class
         }else {
             $this->idEspecialista = "";
             $this->Tipo = "";
-            $this->Nombres = "";
-            $this->Apellidos = "";
+            $this->Nombre = "";
+            $this->Apellido = "";
             $this->Documento = "";
             $this->TipoDocumento = "";
             $this->Direccion = "";
@@ -86,33 +81,33 @@ class Especialista extends db_abstract_class
     /**
      * @return mixed
      */
-    public function getNombres()
+    public function getNombre()
     {
-        return $this->Nombres;
+        return $this->Nombre;
     }
 
     /**
-     * @param mixed $Nombres
+     * @param mixed $Nombre
      */
-    public function setNombres($Nombres)
+    public function setNombre($Nombre)
     {
-        $this->Nombres = $Nombres;
+        $this->Nombre = $Nombre;
     }
 
     /**
      * @return mixed
      */
-    public function getApellidos()
+    public function getApellido()
     {
-        return $this->Apellidos;
+        return $this->Apellido;
     }
 
     /**
-     * @param mixed $Apellidos
+     * @param mixed $Apellido
      */
-    public function setApellidos($Apellidos)
+    public function setApellido($Apellido)
     {
-        $this->Apellidos = $Apellidos;
+        $this->Apellido = $Apellido;
     }
 
     /**
@@ -215,11 +210,11 @@ class Especialista extends db_abstract_class
     {
         $Espec = new Especialista();
         if ($id > 0){
-            $getrow = $Espec->getRow("SELECT * FROM odontologos.Especialista WHERE idEspecialista =?", array($id));
+            $getrow = $Espec->getRow("SELECT * FROM odontologos.especialista WHERE idEspecialista =?", array($id));
             $Espec->idEspecialista = $getrow['idEspecialista'];
             $Espec->Tipo = $getrow['Tipo'];
-            $Espec->Nombres = $getrow['Nombres'];
-            $Espec->Apellidos = $getrow['Apellidos'];
+            $Espec->Nombre = $getrow['Nombre'];
+            $Espec->Apellido = $getrow['Apellido'];
             $Espec->Documento = $getrow['Documento'];
             $Espec->TipoDocumento = $getrow['TipoDocumento'];
             $Espec->Direccion = $getrow['Direccion'];
@@ -243,8 +238,8 @@ class Especialista extends db_abstract_class
             $Espec = new Especialista();
             $Espec->idEspecialista = $valor['idEspecialista'];
             $Espec->Tipo = $valor['Tipo'];
-            $Espec->Nombres = $valor['Nombres'];
-            $Espec->Apellidos = $valor['Apellidos'];
+            $Espec->Nombre = $valor['Nombre'];
+            $Espec->Apellido = $valor['Apellido'];
             $Espec->Documento = $valor['Documento'];
             $Espec->TipoDocumento = $valor['TipoDocumento'];
             $Espec->Direccion = $valor['Direccion'];
@@ -257,17 +252,17 @@ class Especialista extends db_abstract_class
         return $arrEspecialistas;
     }
 
-    protected static function getAll()
+    public static function getAll()
     {
-        return Especialista::buscar("SELECT * FROM odontologos.Especialista");
+        return Especialista::buscar("SELECT * FROM odontologos.especialista");
     }
 
     public function insertar()
     {
-        $this->insertRow("INSERT INTO odontologos.Especialista VALUES ('NULL', ?, ?, ?, ?, ?, ?, ?, ?, ?)", array(
+        $this->insertRow("INSERT INTO odontologos.especialista VALUES ('NULL', ?, ?, ?, ?, ?, ?, ?, ?, ?)", array(
                 $this->Tipo,
-                $this->Nombres,
-                $this->Apellidos,
+                $this->Nombre,
+                $this->Apellido,
                 $this->Documento,
                 $this->TipoDocumento,
                 $this->Direccion,
@@ -283,11 +278,11 @@ class Especialista extends db_abstract_class
     {
 
         $arrUser = (array) $this;
-        $this->updateRow("UPDATE odontologos.Especialista SET Nombre = ?, Apellidos = ?, Documento = ?, TipoDocumento = ?, Direccion = ?, Email = ?, Genero = ?, $this->Telefono = ? WHERE idEspecialista = ?", array(
+        $this->updateRow("UPDATE odontologos.especialista SET Nombre = ?, Apellido = ?, Documento = ?, TipoDocumento = ?, Direccion = ?, Email = ?, Genero = ?, Telefono = ? WHERE idEspecialista = ?", array(
             $this->idEspecialista,
             $this->Tipo,
-            $this->Nombres,
-            $this->Apellidos,
+            $this->Nombre,
+            $this->Apellido,
             $this->Documento,
             $this->TipoDocumento,
             $this->Direccion,
@@ -307,7 +302,7 @@ class Especialista extends db_abstract_class
     protected function eliminar($id)
     {
         if ($id > 0){
-            return $this->deleteRow("DELETE FROM odontologos.Especialista WHERE id = ?", array($id));
+            return $this->deleteRow("DELETE FROM odontologos.especialista WHERE id = ?", array($id));
         }else{
             return false;
         }

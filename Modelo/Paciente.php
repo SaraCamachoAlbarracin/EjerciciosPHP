@@ -74,9 +74,9 @@ class Paciente extends db_abstract_class
     /**
      * @param mixed $Nombres
      */
-    public function setNombre($Nombres)
+    public function setNombre($Nombre)
     {
-        $this->Nombre = $Nombres;
+        $this->Nombre = $Nombre;
     }
 
     /**

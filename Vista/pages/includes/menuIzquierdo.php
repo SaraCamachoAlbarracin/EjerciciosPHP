@@ -16,6 +16,10 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
+
+                            <a href="registroCita.php"><i class="fa fa-user fa-fw"></i> Registro Citas</a>
+                        </li>
+                        <li>
                             <a href="registroPaciente.php"><i class="fa fa-user fa-fw"></i> Registro Pacientes</a>
                         </li>
                         <li>

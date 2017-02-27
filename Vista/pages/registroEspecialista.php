@@ -54,18 +54,23 @@
                                     </div>
                                     <div class="form-group">
 
-                                        <label>Nombres</label>
-                                        <input required maxlength="60" id="Nombres" name="Nombres" minlength="2" class="form-control" placeholder="Ingrese Sus Nombres Completos">
+                                        <label>Nombre</label>
+                                        <input required maxlength="60" id="Nombre" name="Nombre" minlength="2" class="form-control" placeholder="Ingrese Sus Nombres Completos">
                                     </div>
                                     <div class="form-group">
-                                        <label>Apellidos</label>
-                                        <input required maxlength="60" id="Apellidos" name="Apellidos" minlength="2" class="form-control" placeholder="Ingrese Sus Apellidos Completos">
+                                        <label>Apellido</label>
+                                        <input required maxlength="60" id="Apellido" name="Apellido" minlength="2" class="form-control" placeholder="Ingrese Sus Apellidos Completos">
                                     </div>
                                     <div class="form-group">
                                         <label>Direccion</label>
                                         <input required maxlength="60" id="Direccion" name="Direccion" minlength="7" class="form-control" placeholder="Ingrese su direccion de residencia">
                                     </div>
 
+                                    <div class="form-group">
+                                        <label>Documento</label>
+                                        <input type="number" required max="3000000000" min="1000000" maxlength="12" id="Documento" name="Documento" minlength="7" class="form-control" placeholder="Ingrese Documento Completo">
+                                    </div>
+                                    
                                     <div class="form-group">
                                         <label>Tipo Documento</label>
                                         <select required id="TipoDocumento" name="TipoDocumento" class="form-control">
@@ -79,10 +84,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Documento</label>
-                                        <input type="number" required max="3000000000" min="1000000" maxlength="12" id="Documento" name="Documento" minlength="7" class="form-control" placeholder="Ingrese Documento Completo">
-                                    </div>
+
 
                                     <label>Email</label>
                                     <div class="form-group input-group">
@@ -102,7 +104,7 @@
                                     <label>Telefono</label>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">#</span>
-                                        <input type="tel" required maxlength="20" id="Email" name="Telefono" minlength="7" class="form-control" placeholder="Ingrese su Telefono">
+                                        <input type="tel" required maxlength="20" id="Telefono" name="Telefono" minlength="7" class="form-control" placeholder="Ingrese su Telefono">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Enviar</button>

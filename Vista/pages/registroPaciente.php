@@ -86,6 +86,16 @@
                                             </select>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Estado</label>
+                                            <select required id="Estado" name="Estado" class="form-control">
+                                                <option>Seleccione</option>
+                                                <option value="Activo">Activo</option>
+                                                <option value="Inactivo">Inactivo</option>
+
+                                            </select>
+                                        </div>
+
                                         <button type="submit" class="btn btn-primary">Enviar</button>
                                         <button type="reset" class="btn btn-warning">Cancelar</button>
                                     </form>
@@ -105,7 +115,7 @@
         <!-- /#page-wrapper -->
 
     </div>
-    
+
     <?php include ("includes/includes-footer.php"); ?>
 
 </body>
